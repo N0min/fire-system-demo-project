@@ -5,7 +5,7 @@ const int buzzer = 0; //buzzer to arduino pin 9
 int flame_sensor = 2; //flame sensor pin
 int flame_detected;
 String buzz = "off";
-String fs = "on"
+String fs = "on";
 #define DHTPIN 21      // Digital pin connected to the DHT sensor
 #define DHTTYPE DHT11   // DHT 11
 DHT dht(DHTPIN, DHTTYPE);
@@ -43,17 +43,18 @@ void loop(){
       flame_detected = digitalRead(flame_sensor);
       if (flame_detected == 1)
       {
-        //Serial.println("Flame detected...! take action immediately.");
-        digitalWrite(buzzer, HIGH);
-        delay(200);
+        Serial1.println("FIRE");
+        digitalWrite(buzzer, HIGH);     //alarming 
+        delay(2000);
+        digitalWrite(buzzer, LOW);
+        delay(2);
       }
       else
       {
-        //Serial.println("No flame detected. stay cool");
         digitalWrite(buzzer, LOW);
       }
     
   delay(1000);
- 
+   }
       
 }
