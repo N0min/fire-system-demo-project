@@ -72,8 +72,21 @@ void loop(){
     delay(1000);
    }
    else if(fs == "off"){
-   Serial1.println("PLS turn on fire system");
-   delay(1000);
+    float h = dht.readHumidity();
+    float t = dht.readTemperature();
+    float f = dht.readTemperature(true);
+    float hif = dht.computeHeatIndex(f, h);
+    float hic = dht.computeHeatIndex(t, h, false);  
+
+    Serial1.print(F(" Humidity: "));
+    Serial1.print(h);
+    Serial1.print(F("%  Temperature: "));
+    Serial1.print(t);
+    Serial1.print(F("C "));
+    Serial1.print(F("fire: "));
+    Serial1.print("0");
+    Serial1.println(F("F"));
+    delay(1000);
     
    }
       
