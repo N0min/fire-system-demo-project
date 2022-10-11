@@ -36,12 +36,12 @@ void loop(){
         Serial1.println("0");
        }
      } 
-  if ( turn == 1){
-    digitalWrite(ledRED, HIGH);   // turn LED ON
-    delay(1000);                
-    digitalWrite(ledRED, LOW);   // turn LED OFF
-    delay(1000);  
-    val = digitalRead(sensor);   // read sensor value
+    if ( turn == 1){
+      digitalWrite(ledRED, HIGH);   // turn LED ON
+      delay(1000);                
+      digitalWrite(ledRED, LOW);   // turn LED OFF
+      delay(1000);  
+      val = digitalRead(sensor);   // read sensor value
         if (val == HIGH) {           // check if the sensor is HIGH
           for( int i = 0; i <= 10; i++){
             digitalWrite(ledGREEN, HIGH);
