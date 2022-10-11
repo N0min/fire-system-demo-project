@@ -86,7 +86,8 @@ void loop(){
     Serial1.print(F("fire: "));
     Serial1.print("0");
     Serial1.println(F("F"));
-    delay(1000);
+    
+    delay(5000);
     
    }
       
