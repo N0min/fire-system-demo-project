@@ -17,10 +17,8 @@ void setup ( ) {
   pinMode ( ledRED , OUTPUT ) ;
   pinMode ( sensor , INPUT ) ;
  
- 
  Serial1.begin(9600); // BT def communication
  
-
 }
 
 void loop(){
@@ -35,6 +33,7 @@ void loop(){
         turn = 0;
         digitalWrite(ledRED, LOW);   // turn LED OFF TURNED OFF SYS
         Serial.println("system is off");
+        Serial1.println("0");
        }
      } 
   if ( turn == 1){
@@ -52,19 +51,16 @@ void loop(){
             }
              if (state == LOW) {
                 //Serial.println("Motion detected!"); 
-              
-                if(Serial1.available()>0){
-
-                  Serial1.println("danger");
-                  delay(100);
+                  Serial1.println("1");
+                  delay(1000);
                     state = HIGH;       // update variable state to HIGH 
-                }
               }
            }      
         else {
               delay(20);             // delay 200 milliseconds 
               if (state == HIGH){
                 //Serial.println("Motion stopped!");
+                Serial1.println("0");
                 state = LOW;       // update variable state to LOW
                }
           }
