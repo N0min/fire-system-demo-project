@@ -3,7 +3,7 @@ import serial
 import string
 import time
 fireserial = serial.Serial("/dev/rfcomm0", 9600)
-secureserial = serial.Serial("/dev/rfcomm3", 9600)
+secureserial = serial.Serial("/dev/rfcomm1", 9600)
 
 def on_connect(client, userdata, flags, rc): # func for making connection
     print("Connected to MQTT")
