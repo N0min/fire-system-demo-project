@@ -6,7 +6,7 @@ import paho.mqtt.publish as publish
 # rfcomm0 -> this could be different
 ser = serial.Serial("/dev/rfcomm0", 9600)
 ser.write(str.encode('Start\r\n'))
-ser1 = serial.Serial("/dev/rfcomm3", 9600)
+ser1 = serial.Serial("/dev/rfcomm1", 9600)
 ser1.write(str.encode('Start\r\n'))
 oldtemp = 0
 oldhumi = 0
