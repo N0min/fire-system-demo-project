@@ -4,9 +4,9 @@ int ledRED = 0 ;                //the led for show working status
 int ledGREEN = 2;               // the Led for show detected moviement
 int sensor = 21 ;              // Motion sensor pin number
 int state = LOW ;               // default status of motion
-int val = 0 ;
-int turn;      // for conrol the detect sensor
-String Data = "data";
+int val = 0 ;                   //default low value 
+int turn;                     // for conrol the detect sensor
+String Data = "off";          //default mode for system is off
 int alarm = 10;
 #define rxPin 7 // Teensy pin 7 <--> HC-05 Tx
 #define txPin 8 // Teensy pin 8 <--> HC-05 Rx
@@ -22,8 +22,8 @@ void setup ( ) {
 }
 
 void loop(){
-   if(Serial1.available() >0 ){
-      Data = Serial1.readString();
+   if(Serial1.available() >0 ){               //scaning serial port and decide system work or not
+      Data = Serial1.readString();            
       if( Data == "on"){
         turn = 1;
         Serial.println("system is on");
